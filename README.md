@@ -996,30 +996,50 @@ O sistema deve ser construído através de *vertical slices* funcionais.
 # 🗺️ Roadmap inicial
 
 ```text
-[ ] Project setup
-[ ] Arquitetura base
-[ ] PostgreSQL
-[ ] Domain model
-[ ] Application layer
-[ ] AI abstraction
-[ ] Transcription abstraction
-[ ] Audio/Text Capture
-[ ] Interpretation
-[ ] Proposal system
-[ ] Confirmation flow
-[ ] Tasks
-[ ] Projects
-[ ] Action & Decision Inbox
-[ ] Dashboard
-[ ] Finance
+[x] Project setup
+[x] Arquitetura base
+[x] PostgreSQL
+[x] Domain model
+[x] Application layer
+[x] AI abstraction
+[x] Transcription abstraction
+[x] Audio/Text Capture
+[x] Interpretation
+[x] Proposal system
+[x] Confirmation flow
+[x] Tasks
+[~] Projects
+[~] Action & Decision Inbox
+[x] Dashboard
+[~] Finance
 [ ] Goals
 [ ] Responsibilities
-[ ] Proactive intelligence
+[~] Proactive intelligence
 [ ] Weekly reviews
 [ ] Obsidian projection
-[ ] PWA
-[ ] Testing
+[~] PWA
+[x] Testing
 [ ] Production deployment
+```
+
+Legenda: `[x]` concluído · `[~]` parcial · `[ ]` por iniciar.
+
+O detalhe do que está realmente implementado, o que **não** está, e as
+decisões técnicas encontram-se em **[`docs/IMPLEMENTATION-NOTES.md`](docs/IMPLEMENTATION-NOTES.md)**.
+
+### Executar o projeto
+
+```bash
+npm install
+npm run migrate     # cria/atualiza o PostgreSQL
+npm run dev         # http://localhost:3000
+npm test            # testes unitários e de integração
+```
+
+Fluxo completo já funcional:
+
+```text
+Escrever ou gravar → interpretar → prévia → confirmar → PostgreSQL → homepage
 ```
 
 O desenvolvimento deve começar por uma primeira **vertical slice**:
@@ -1074,11 +1094,23 @@ Decisões técnicas podem ser tomadas com base em critérios de engenharia, mas 
 
 # 📌 Estado do projeto
 
-> **Status: Em desenvolvimento**
+> **Status: Primeiro vertical slice implementado**
 
-O projeto encontra-se numa fase inicial de construção da arquitetura e das primeiras funcionalidades.
+A fundação e o primeiro fluxo completo estão implementados e testados:
 
-A documentação define o comportamento esperado do sistema, enquanto a implementação será construída progressivamente.
+```text
+Captura → Transcrição → Interpretação → Proposta → Confirmação → PostgreSQL → Homepage
+```
+
+A arquitetura segue o que está definido em `docs/ARCHITECTURE.md`:
+`Presentation → Application → Domain → Infrastructure`, com abstração de
+fornecedor de IA e de transcrição, PostgreSQL como fonte de verdade e
+confirmação humana obrigatória antes de qualquer escrita.
+
+O que ainda **não** existe (revisões semanais, finanças completas, projeção
+para Obsidian, modo offline) está explicitamente registado em
+[`docs/IMPLEMENTATION-NOTES.md`](docs/IMPLEMENTATION-NOTES.md). Nenhuma
+funcionalidade fictícia foi criada para preencher ecrãs.
 
 ---
 

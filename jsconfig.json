@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/src/*": ["src/*"],
+      "@/components/*": ["components/*"],
+      "@/app/*": ["app/*"]
+    },
+    "checkJs": false
+  },
+  "include": ["src", "app", "components", "scripts", "tests"],
+  "exclude": ["node_modules", ".next"]
+}
